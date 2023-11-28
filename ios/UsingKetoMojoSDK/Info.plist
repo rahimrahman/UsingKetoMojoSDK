@@ -51,5 +51,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>This will allow you to automatically upload your glucose and ketone readings to the app once Bluetooth syncing is available to all patients.</string>
 </dict>
 </plist>

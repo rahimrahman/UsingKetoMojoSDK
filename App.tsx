@@ -8,6 +8,7 @@
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
+  Button,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -24,6 +25,8 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+
+import {DeviceManager} from 'react-native-keto-mojo-sdk';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -76,6 +79,27 @@ function App(): JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
+          <Button
+            title={'Request Bluetooth Permission'}
+            onPress={() => {
+              console.log('test');
+              DeviceManager.requestBluetoothAuthorization();
+            }}
+            color={isDarkMode ? Colors.white : Colors.black}
+          />
+          <Button
+            title={'Get Bluetooth Authorization Status'}
+            onPress={() => {
+              console.log('test');
+              DeviceManager.getBluetoothAuthorizationStatus(
+                (error: any, result: string) => {
+                  console.log(error);
+                  console.log(result);
+                },
+              );
+            }}
+            color={isDarkMode ? Colors.white : Colors.black}
+          />
           <Section title="Step One">
             Edit <Text style={styles.highlight}>App.tsx</Text> to change this
             screen and then come back to see your edits.
